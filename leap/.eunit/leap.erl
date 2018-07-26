@@ -11,6 +11,6 @@ leap_year(_)                            -> false.
 % leap_year(Year) -> Year rem 400 == 0;
 % leap_year(Year) -> Year rem 100 == 0;
 % leap_year(Year) -> Year rem 4 == 0;
-% leap_year(Year) -> false.
+% leap_year(_) -> false.
 
 test_version() -> 3.
