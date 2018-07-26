@@ -4,8 +4,11 @@
 
 steps(N) when N < 1 -> {error, "Only positive numbers are allowed"};
 
-% what is this line doing?
+% what is this line doing? if no steps, initialize variable?
+% why a period and not a semicolon?
 steps(N) -> steps(N, 0).
+
+
 % base case
 % steps(Num, Steps) when Num =:= 1 -> Steps;
 steps(1, Steps) -> Steps;
