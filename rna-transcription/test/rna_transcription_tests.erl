@@ -31,6 +31,3 @@ correctly_handles_completely_invalid_dna_input_test() ->
 correctly_handles_partially_invalid_dna_input_test() ->
     ?assertMatch(error,
 		 rna_transcription:to_rna("ACGTXXXCTTAA")).
-
-version_test() ->
-    ?assertMatch(2, rna_transcription:test_version()).
