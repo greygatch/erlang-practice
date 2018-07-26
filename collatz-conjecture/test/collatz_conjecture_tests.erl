@@ -27,6 +27,3 @@ negative_value_is_an_error_test() ->
     ?assertMatch({error,
 		  "Only positive numbers are allowed"},
 		 collatz_conjecture:steps(-15)).
-
-version_test() ->
-    ?assertMatch(2, collatz_conjecture:test_version()).
