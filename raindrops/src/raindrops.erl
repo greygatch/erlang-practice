@@ -1,12 +1,13 @@
 -module(raindrops).
-
 -export([convert/1]).
+-define(Sounds, [{3, "Pling"}, {5, "Plang"}, {7, "Plong"}]).
 
-convert(N) -> convert(N, 1, []).
+convert(Number) ->
+  lists:flatten(number_to_sound(Number)).
 
-convert(N, I, Acc) when I =< trunc(N/2) ->
-    case N rem I of
-        0 -> convert(N, I + 1, [I | Acc]);
-        _ -> convert(N, I + 1, Acc)
-    end;
-convert(N, _I, Acc) -> lists:reverse(Acc) ++ [N].
+
+number_to_sound(Number) ->
+  case [Sound || {Factor, Sound} <- ?Sounds, Number rem Factor == 0] of
+    [] -> integer_to_list(Number);
+    Sound -> Sound
+  end.
