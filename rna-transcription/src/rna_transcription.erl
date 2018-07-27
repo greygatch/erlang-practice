@@ -2,12 +2,14 @@
 
 -export([to_rna/1]).
 
--define(Conversions, [{"A", "U"}, {"G", "C"}, {"C", "G"}, {"T", "A"}]).
+% {"A", "U"}, {"G", "C"}, {"C", "G"}, {"T", "A"}
 
-to_rna(Strand) -> lists:map(transcribe, Strand).
+% to_rna(Strand) -> lists:flatten(lists:map(transcribe, Strand)).
 
-transcribe(N) ->
-  case [Rna || {Dna, Rna} <- ?Conversions, N == Dna] of
-    [] -> "error";
-    Rna -> Rna
-  end.
+to_rna(Seq) -> lists:member(error, lists:map(fun convert/1, Seq)).
+
+convert($G) -> $C;
+convert($C) -> $G;
+convert($T) -> $A;
+convert($A) -> $U;
+convert(_) -> error.
