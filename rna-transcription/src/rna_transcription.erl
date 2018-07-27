@@ -7,9 +7,14 @@
 % to_rna(Strand) -> lists:flatten(lists:map(transcribe, Strand)).
 
 to_rna(Seq) ->
-  case lists:member(error, lists:map(fun convert/1, Seq)) of ->
-    true.
-  % Clists:member(error, lists:map(fun convert/1, Seq));
+  % if error, return error
+  case lists:member(error, lists:map(fun convert/1, Seq)) of
+    true ->
+      error;
+    false ->
+      lists:map(fun convert/1, Seq)
+    end.
+
 
 convert($G) -> $C;
 convert($C) -> $G;
