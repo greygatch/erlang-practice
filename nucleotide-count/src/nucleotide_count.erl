@@ -1,11 +1,11 @@
 -module(nucleotide_count).
 
--export([count/2, nucleotide_counts/1, test_version/0]).
+-export([count/2, nucleotide_counts/1]).
 
-count(Dna, N) ->
-  undefined.
+count(Seq, [Nucl]) ->
+    case lists:member(Nucl, "ATCG") of
+        true -> length([N || N <- Seq, N =:= Nucl]);
+        false -> error("Invalid nucleotide")
+    end.
 
-nucleotide_counts(Dna) ->
-  undefined.
-
-test_version() -> 1.
+nucleotide_counts(Seq) -> [{Nucl, count(Seq, Nucl)} || Nucl <- ["A", "T", "C", "G"]].

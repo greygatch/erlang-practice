@@ -26,6 +26,3 @@ counts_all_nucleotides_test() ->
      [{"A", 20}, {"T", 21}, {"C", 12}, {"G", 17}],
      nucleotide_count:nucleotide_counts(
        "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")).
-
-version_test() ->
-  ?assertMatch(1, nucleotide_count:test_version()).
