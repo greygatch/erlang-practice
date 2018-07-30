@@ -5,7 +5,10 @@
 count(Seq, [Nucl]) ->
     DnaList = "ATCG",
     case lists:member(Nucl, DnaList) of
-        % wtf?
+        % 1. check list for every elmt that matches
+        % 2. iterate through each element
+        % 3. return element if condition matches
+        % (i.e. filtermap)
         true -> length([N || N <- Seq, N == Nucl]);
         false -> error("Invalid nucleotide")
     end.
