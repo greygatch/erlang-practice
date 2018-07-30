@@ -2,13 +2,10 @@
 
 -export([to_rna/1]).
 
-
-has_error(X) ->
-  lists:member(error, lists:map(fun convert/1, X)).
-
 to_rna(Seq) ->
   List = lists:map(fun convert/1, Seq),
-  case lists:member(error, List) of
+  Has_Error = lists:member(error, List),
+  case Has_Error of
     true ->
       error;
     false ->
