@@ -10,5 +10,6 @@ count(Seq, [Nucl]) ->
         false -> error("Invalid nucleotide")
     end.
 
-% wtf
+% create a list of nucleotides as Nucl
+% for each, return a tuple of the nucleotide and its count
 nucleotide_counts(Seq) -> [{Nucl, count(Seq, Nucl)} || Nucl <- ["A", "T", "C", "G"]].
