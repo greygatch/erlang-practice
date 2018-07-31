@@ -1,6 +1,6 @@
 -module(phone_number_tests).
 
--include_lib("erl_exercism/include/exercism.hrl").
+% -include_lib("erl_exercism/include/exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
 cleans_number_test() ->
@@ -24,6 +24,3 @@ area_code_test() ->
 pretty_print_test() ->
   ?assertEqual("(123) 456-7890", phone_number:pretty_print("1234567890")),
   ?assertEqual("(123) 456-7890", phone_number:pretty_print("11234567890")).
-
-version_test() ->
-  ?assertMatch(1, phone_number:test_version()).
