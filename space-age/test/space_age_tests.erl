@@ -1,6 +1,6 @@
 -module(space_age_tests).
 
--include_lib("erl_exercism/include/exercism.hrl").
+% -include_lib("erl_exercism/include/exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
 age_in_earth_years_test() ->
